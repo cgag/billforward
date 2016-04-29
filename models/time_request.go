@@ -25,7 +25,7 @@ type TimeRequest struct {
 
 	/* { "description" : "The UTC DateTime when the object was created.", "verbs":[] }
 	 */
-	Created strfmt.DateTime `json:"created,omitempty"`
+	Created *strfmt.DateTime `json:"created,omitempty"`
 
 	/* {"default":false,"description":"Changes described in the response:<br><span class=\"label label-default\">true</span> &mdash; Are not actually performed; your subscription remains unchanged, no billing events run, and no invoices are executed.<br><span class=\"label label-default\">false</span> &mdash; Are actually performed and committed.","verbs":["POST","GET"]}
 	 */
@@ -47,7 +47,7 @@ type TimeRequest struct {
 	A 1-value advances the subscription to the end of its current service period.
 	Higher values advance the subscription to subsequent period boundaries."verbs":["POST","GET"]}
 	*/
-	Periods int32 `json:"periods,omitempty"`
+	Periods *int32 `json:"periods,omitempty"`
 
 	/* {"default":false,"description":"As time scrubs forward:<br><span class=\"label label-default\">true</span> &mdash; Raise no invoice upon advancing over a period boundary.<br><span class=\"label label-default\">false</span> &mdash; Raise invoices for any period that is entered.","verbs":["POST","GET"]}
 	 */
@@ -55,7 +55,7 @@ type TimeRequest struct {
 
 	/* {"description":"(Required: one of [`periods`, `to`])<br>The time up until which the subscription should be fast-forwarded.","verbs":["POST","GET"]}
 	 */
-	To strfmt.DateTime `json:"to,omitempty"`
+	To *strfmt.DateTime `json:"to,omitempty"`
 }
 
 // Validate validates this time request

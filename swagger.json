@@ -36972,16 +36972,19 @@
         "created": {
           "type": "string",
           "format": "date-time",
+          "x-nullable": true,
           "description": "{ \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }"
         },
         "periods": {
           "type": "integer",
           "format": "int32",
+          "x-nullable": true,
           "description": "{\"description\":\"(Required: one of [`periods`, `to`])<br>The number of period boundaries up to which the subscription should advance.\nA 1-value advances the subscription to the end of its current service period.\nHigher values advance the subscription to subsequent period boundaries.\"verbs\":[\"POST\",\"GET\"]}"
         },
         "to": {
           "type": "string",
           "format": "date-time",
+          "x-nullable": true,
           "description": "{\"description\":\"(Required: one of [`periods`, `to`])<br>The time up until which the subscription should be fast-forwarded.\",\"verbs\":[\"POST\",\"GET\"]}"
         },
         "dryRun": {
