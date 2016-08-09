@@ -12707,7 +12707,7 @@
             "name": "request",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/BillingEntityBase"
+              "$ref": "#/definitions/ExecuteInvoiceRequest"
             }
           }
         ],
@@ -43955,6 +43955,18 @@
         "primaryAddress": {
           "type": "boolean",
           "description": "{ \"description\" : \"Is this the primary, default, address for the associated profile?\", \"verbs\":[\"POST\",\"PUT\",\"GET\"] }",
+          "default": false
+        }
+      }
+    },
+    "ExecuteInvoiceRequest": {
+      "type": "object",
+      "required": [
+        "forcePaid"
+      ],
+      "properties": {
+        "forcePaid": {
+          "type": "boolean",
           "default": false
         }
       }
