@@ -23,6 +23,33 @@ type Client struct {
 }
 
 /*
+ExecuteInvoice attempts payment for the outstanding value of an invoice
+
+{"nickname":"Execute invoice","response":"executeInvoiceResponse.html","request":"ExecuteInvoiceRequest.html"}
+*/
+func (a *Client) ExecuteInvoice(params *ExecuteInvoiceParams) (*ExecuteInvoiceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewExecuteInvoiceParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "executeInvoice",
+		Method:             "POST",
+		PathPattern:        "/invoices/{invoice-ID}/execute",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ExecuteInvoiceReader{formats: a.formats},
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*ExecuteInvoiceOK), nil
+}
+
+/*
 GetInvoiceAsPDF retrieves a single invoice specified by the ID parameter
 
 { "nickname" : "PDF Invoice","response" : "getInvoiceByID.pdf"}
