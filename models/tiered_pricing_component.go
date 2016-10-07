@@ -61,7 +61,7 @@ type TieredPricingComponent struct {
 
 	validFromField *strfmt.DateTime
 
-	validTillField strfmt.DateTime
+	validTillField *strfmt.DateTime
 
 	versionIdField *string
 }
@@ -227,10 +227,10 @@ func (m *TieredPricingComponent) SetValidFrom(val *strfmt.DateTime) {
 	m.validFromField = val
 }
 
-func (m *TieredPricingComponent) ValidTill() strfmt.DateTime {
+func (m *TieredPricingComponent) ValidTill() *strfmt.DateTime {
 	return m.validTillField
 }
-func (m *TieredPricingComponent) SetValidTill(val strfmt.DateTime) {
+func (m *TieredPricingComponent) SetValidTill(val *strfmt.DateTime) {
 	m.validTillField = val
 }
 
@@ -290,7 +290,7 @@ func (m *TieredPricingComponent) UnmarshalJSON(raw []byte) error {
 
 		ValidFrom *strfmt.DateTime `json:"validFrom"`
 
-		ValidTill strfmt.DateTime `json:"validTill,omitempty"`
+		ValidTill *strfmt.DateTime `json:"validTill,omitempty"`
 
 		VersionID *string `json:"versionID"`
 	}
@@ -380,7 +380,7 @@ func (m TieredPricingComponent) MarshalJSON() ([]byte, error) {
 
 		ValidFrom *strfmt.DateTime `json:"validFrom"`
 
-		ValidTill strfmt.DateTime `json:"validTill,omitempty"`
+		ValidTill *strfmt.DateTime `json:"validTill,omitempty"`
 
 		VersionID *string `json:"versionID"`
 	}

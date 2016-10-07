@@ -159,8 +159,8 @@ type PricingComponent interface {
 
 	/* {  "default" : "null", "description" : "The UTC DateTime specifying when the pricing-component is valid till.", "verbs":["POST","PUT","GET"] }
 	 */
-	ValidTill() strfmt.DateTime
-	SetValidTill(strfmt.DateTime)
+	ValidTill() *strfmt.DateTime
+	SetValidTill(*strfmt.DateTime)
 
 	/* { "description" : "", "verbs":["GET"] }
 
