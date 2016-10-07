@@ -43426,6 +43426,7 @@
         },
         "validTill": {
           "type": "string",
+          "x-isnullable": true,
           "format": "date-time",
           "description": "{  \"default\" : \"null\", \"description\" : \"The UTC DateTime specifying when the pricing-component is valid till.\", \"verbs\":[\"POST\",\"PUT\",\"GET\"] }"
         },
