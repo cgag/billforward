@@ -43977,7 +43977,7 @@
       "required": [
       ],
       "properties": {
-        "URL": {
+        "url": {
           "type": "string"
         }
       }

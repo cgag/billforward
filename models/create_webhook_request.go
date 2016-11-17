@@ -11,9 +11,9 @@ swagger:model CreateWebhookRequest
 */
 type CreateWebhookRequest struct {
 
-	/* URL
+	/* url
 	 */
-	URL string `json:"URL,omitempty"`
+	URL string `json:"url,omitempty"`
 }
 
 // Validate validates this create webhook request
