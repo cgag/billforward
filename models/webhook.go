@@ -15,6 +15,14 @@ type Webhook struct {
 	 */
 	URL string `json:"URL,omitempty"`
 
+	/* consecutive failures
+	 */
+	ConsecutiveFailures int32 `json:"consecutiveFailures,omitempty"`
+
+	/* deleted
+	 */
+	Deleted *bool `json:"deleted,omitempty"`
+
 	/* id
 	 */
 	ID string `json:"id,omitempty"`

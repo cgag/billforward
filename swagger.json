@@ -43996,8 +43996,16 @@
         "URL": {
           "type": "string"
         },
+        "consecutiveFailures": {
+          "type": "integer",
+          "format": "int32"
+        },
         "verificationID": {
           "type": "string"
+        },
+        "deleted": {
+          "type": "boolean",
+          "default": false
         },
         "verified": {
           "type": "boolean",
