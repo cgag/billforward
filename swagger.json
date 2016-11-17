@@ -29467,7 +29467,7 @@
             "description": "The webhook object to be created.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MutableBillingEntity"
+              "$ref": "#/definitions/CreateWebhookRequest"
             }
           }
         ],
@@ -29550,7 +29550,7 @@
             "name": "request",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/BillingEntityBase"
+              "$ref": "#/definitions/CreateWebhookRequest"
             }
           }
         ],
@@ -36791,7 +36791,7 @@
           "type": "array",
           "description": "{\"description\":\"The results returned by your query.\",\"verbs\":[\"GET\",\"PUT\",\"POST\"]}",
           "items": {
-            "$ref": "#/definitions/MutableBillingEntity"
+            "$ref": "#/definitions/Webhook"
           }
         }
       },
@@ -43971,6 +43971,38 @@
           "default": false
         }
       }
+    },
+    "CreateWebhookRequest":{
+      "type": "object",
+      "required": [
+      ],
+      "properties": {
+        "URL": {
+          "type": "string"
+        }
+      }
+    },
+    "Webhook" : {
+      "type": "object",
+      "required": [
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "URL": {
+          "type": "string"
+        },
+        "verificationID": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean",
+          "default": false
+        }
+      }
     }
-  }
-}
+}}
