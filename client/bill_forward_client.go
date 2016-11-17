@@ -19,6 +19,7 @@ import (
 	"github.com/authclub/billforward/client/profiles"
 	"github.com/authclub/billforward/client/subscriptions"
 	"github.com/authclub/billforward/client/tokenization"
+	"github.com/authclub/billforward/client/webhooks"
 )
 
 // Default bill forward HTTP client.
@@ -58,6 +59,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *BillForwar
 
 	cli.Tokenization = tokenization.New(transport, formats)
 
+	cli.Webhooks = webhooks.New(transport, formats)
+
 	return cli
 }
 
@@ -82,6 +85,8 @@ type BillForward struct {
 	Subscriptions *subscriptions.Client
 
 	Tokenization *tokenization.Client
+
+	Webhooks *webhooks.Client
 
 	Transport runtime.ClientTransport
 }
@@ -109,5 +114,7 @@ func (c *BillForward) SetTransport(transport runtime.ClientTransport) {
 	c.Subscriptions.SetTransport(transport)
 
 	c.Tokenization.SetTransport(transport)
+
+	c.Webhooks.SetTransport(transport)
 
 }
