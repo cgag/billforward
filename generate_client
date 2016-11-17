@@ -1,6 +1,11 @@
 #!/bin/bash
 
 swagger generate client -f swagger.json -A BillForward -c client -a client \
+    -O getAllWebhooks \
+    -O retireWebhook \
+    -O getWebhookByID \
+    -O createWebhookV2 \
+    -O createWebhook \
     -O executeInvoice \
     -O advanceSubscription \
     -O getAllSubscriptions \
@@ -127,4 +132,7 @@ swagger generate client -f swagger.json -A BillForward -c client -a client \
     -M Notification \
     -M ReviveSubscriptionRequest \
     -M CreateAccountProfileRequest \
-    -M CreateProfileAddressRequest
+    -M CreateProfileAddressRequest \
+    -M Webhook \
+    -M CreateWebhookRequest \
+    -M WebhookPagedMetadata
