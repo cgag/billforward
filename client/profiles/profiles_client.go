@@ -23,6 +23,33 @@ type Client struct {
 }
 
 /*
+GetAllProfiles returns a collection of all profiles by default 10 values are returned records are returned in natural order
+
+{"nickname":"Get all profiles","response":"getProfileAll.html"}
+*/
+func (a *Client) GetAllProfiles(params *GetAllProfilesParams) (*GetAllProfilesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAllProfilesParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAllProfiles",
+		Method:             "GET",
+		PathPattern:        "/profiles",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{""},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAllProfilesReader{formats: a.formats},
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAllProfilesOK), nil
+}
+
+/*
 GetProfile returns a single profile specified by the ID parameter
 
 {"nickname":"Retrieve an existing profile","response":"getProfileByID.html"}
@@ -47,6 +74,60 @@ func (a *Client) GetProfile(params *GetProfileParams) (*GetProfileOK, error) {
 		return nil, err
 	}
 	return result.(*GetProfileOK), nil
+}
+
+/*
+GetProfileByAccountID returns a collection of profiles specified by the account ID parameter by default 10 values are returned records are returned in natural order
+
+{"nickname":"Retrieve by account","response":"getProfileByAccountID.html"}
+*/
+func (a *Client) GetProfileByAccountID(params *GetProfileByAccountIDParams) (*GetProfileByAccountIDOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetProfileByAccountIDParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getProfileByAccountID",
+		Method:             "GET",
+		PathPattern:        "/profiles/account/{account-ID}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"text/plain"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetProfileByAccountIDReader{formats: a.formats},
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProfileByAccountIDOK), nil
+}
+
+/*
+GetProfileByEmailAddress returns a single profile specified by the email parameter
+
+{"nickname":"Retrieve by e-mail","response":"getProfileByEmail.html"}
+*/
+func (a *Client) GetProfileByEmailAddress(params *GetProfileByEmailAddressParams) (*GetProfileByEmailAddressOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetProfileByEmailAddressParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getProfileByEmailAddress",
+		Method:             "GET",
+		PathPattern:        "/profiles/email/{email}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"text/plain"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetProfileByEmailAddressReader{formats: a.formats},
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProfileByEmailAddressOK), nil
 }
 
 /*
