@@ -1,6 +1,10 @@
 #!/bin/bash
 
 swagger generate client -f swagger.json -A BillForward -c client -a client \
+    -O getAllProfiles \
+    -O getProfileByID \
+    -O getProfileByEmailAddress \
+    -O getProfileByAccountID \
     -O getAllWebhooks \
     -O retireWebhook \
     -O getWebhookByID \
