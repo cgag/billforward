@@ -23,6 +23,10 @@ type UpdateSubscriptionRequest struct {
 	 */
 	AggregateAllSubscriptionsOnAccount *bool `json:"aggregateAllSubscriptionsOnAccount,omitempty"`
 
+	/* {"default":true,"description":"Whether to override the `end` date to line up with the current period end of the 'aggregating subscription' to which this subscription belongs.","verbs":["POST"]}
+	 */
+	AlignPeriodWithAggregatingSubscription *bool `json:"alignPeriodWithAggregatingSubscription,omitempty"`
+
 	/* {"description":"New description to assign to the updated subscription. This is primarily for your benefit &mdash; for example, you could write here the mechanism through which you obtained this customer. (e.g. 'Customer obtained through Lazy Wednesdays promotion').","verbs":["POST"]}
 	 */
 	Description string `json:"description,omitempty"`
