@@ -35151,6 +35151,11 @@
             "CancelSubscription",
             "None"
           ]
+        },
+        "alignPeriodWithAggregatingSubscription": {
+          "type": "boolean",
+          "description": "{\"default\":true,\"description\":\"Whether to override the `end` date to line up with the current period end of the 'aggregating subscription' to which this subscription belongs.\",\"verbs\":[\"POST\"]}",
+          "default": false
         }
       },
       "description": "Entity for requesting that a subscription be updated."
