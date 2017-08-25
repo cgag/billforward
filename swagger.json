@@ -790,12 +790,12 @@
             "required": true,
             "type": "string"
           },
-	  {
+          {
             "name": "delete_gateway_data",
             "in": "query",
             "required": true,
-            "type": "bool"
-	  },
+            "type": "boolean"
+          },
           {
             "name": "organizations",
             "in": "query",
@@ -43912,7 +43912,6 @@
     },
     "CreateAccountProfileRequest": {
       "type": "object",
-      "required": [],
       "properties": {
         "accountID": {
           "type": "string",
@@ -44036,8 +44035,6 @@
     },
     "CreateWebhookRequest":{
       "type": "object",
-      "required": [
-      ],
       "properties": {
         "url": {
           "type": "string"
@@ -44046,8 +44043,6 @@
     },
     "Webhook" : {
       "type": "object",
-      "required": [
-      ],
       "properties": {
         "id": {
           "type": "string"
