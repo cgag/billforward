@@ -395,6 +395,34 @@
         }
       }
     },
+    "/accounts/{account-ID}/halt-aggregation": {
+      "post": {
+        "tags": [
+          "accounts"
+        ],
+        "summary": "Halt subscription aggregation",
+        "description": "??",
+        "operationId": "haltAggregation",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/BFError"
+            }
+          },
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/HaltAggregationResponse"
+            }
+          }
+        }
+      }
+    },
     "/accounts/created/{lower-threshold}/{upper-threshold}": {
       "get": {
         "tags": [
@@ -30985,6 +31013,35 @@
       },
       "xml": {
         "name": "metadata"
+      }
+    },
+    "HaltAggregationResponse": {
+      "type": "object",
+      "required": [
+        "parent",
+        "children",
+        "created",
+        "organizationID"
+      ],
+      "properties": {
+        "parent": {
+          "$ref": "#/definitions/Subscription"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Subscription"
+          }
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "{ \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }"
+        },
+        "organizationID": {
+          "type": "string",
+          "description": "{ \"description\" : \"ID of the organization to which these usage sessions belong.\", \"verbs\":[\"POST\",\"PUT\",\"GET\"] }"
+        }
       }
     },
     "AccountPagedMetadata": {
