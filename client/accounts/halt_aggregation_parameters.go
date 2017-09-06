@@ -16,7 +16,7 @@ import (
 // NewHaltAggregationParams creates a new HaltAggregationParams object
 // with the default values initialized.
 func NewHaltAggregationParams() *HaltAggregationParams {
-
+	var ()
 	return &HaltAggregationParams{
 
 		timeout: cr.DefaultTimeout,
@@ -26,7 +26,7 @@ func NewHaltAggregationParams() *HaltAggregationParams {
 // NewHaltAggregationParamsWithTimeout creates a new HaltAggregationParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewHaltAggregationParamsWithTimeout(timeout time.Duration) *HaltAggregationParams {
-
+	var ()
 	return &HaltAggregationParams{
 
 		timeout: timeout,
@@ -37,7 +37,17 @@ func NewHaltAggregationParamsWithTimeout(timeout time.Duration) *HaltAggregation
 for the halt aggregation operation typically these are written to a http.Request
 */
 type HaltAggregationParams struct {
+
+	/*AccountID*/
+	AccountID string
+
 	timeout time.Duration
+}
+
+// WithAccountID adds the accountID to the halt aggregation params
+func (o *HaltAggregationParams) WithAccountID(accountID string) *HaltAggregationParams {
+	o.AccountID = accountID
+	return o
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -45,6 +55,11 @@ func (o *HaltAggregationParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 	r.SetTimeout(o.timeout)
 	var res []error
+
+	// path param account-ID
+	if err := r.SetPathParam("account-ID", o.AccountID); err != nil {
+		return err
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
