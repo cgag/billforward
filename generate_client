@@ -1,6 +1,6 @@
 #!/bin/bash
 
-swagger generate client  -f swagger.json -A BillForward -c client -a client \
+swagger generate client --skip-validation -f swagger.json -A BillForward -c client -a client \
     -O getAllProfiles \
     -O getProfileByID \
     -O getProfileByEmailAddress \
