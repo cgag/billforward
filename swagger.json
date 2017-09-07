@@ -412,6 +412,17 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          { "comment": "// NOTE(cgag): I'm mostly putting this here to hope passing some sort of query parameter ensures the body isn't empty",
+            "name": "organizations",
+            "in": "query",
+            "description": "A list of organization-IDs used to restrict the scope of API calls.",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "responses": {

@@ -9,6 +9,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
+	"github.com/go-openapi/swag"
 
 	strfmt "github.com/go-openapi/strfmt"
 )
@@ -40,6 +41,11 @@ type HaltAggregationParams struct {
 
 	/*AccountID*/
 	AccountID string
+	/*Organizations
+	  A list of organization-IDs used to restrict the scope of API calls.
+
+	*/
+	Organizations []string
 
 	timeout time.Duration
 }
@@ -47,6 +53,12 @@ type HaltAggregationParams struct {
 // WithAccountID adds the accountID to the halt aggregation params
 func (o *HaltAggregationParams) WithAccountID(accountID string) *HaltAggregationParams {
 	o.AccountID = accountID
+	return o
+}
+
+// WithOrganizations adds the organizations to the halt aggregation params
+func (o *HaltAggregationParams) WithOrganizations(organizations []string) *HaltAggregationParams {
+	o.Organizations = organizations
 	return o
 }
 
@@ -58,6 +70,14 @@ func (o *HaltAggregationParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 	// path param account-ID
 	if err := r.SetPathParam("account-ID", o.AccountID); err != nil {
+		return err
+	}
+
+	valuesOrganizations := o.Organizations
+
+	joinedOrganizations := swag.JoinByFormat(valuesOrganizations, "multi")
+	// query array param organizations
+	if err := r.SetQueryParam("organizations", joinedOrganizations...); err != nil {
 		return err
 	}
 
