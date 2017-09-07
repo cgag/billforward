@@ -422,7 +422,7 @@
               "properties": {
                 "id": {
                   "type": "string"
-                },
+                }
               }
             }
           }
