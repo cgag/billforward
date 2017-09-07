@@ -413,15 +413,18 @@
             "type": "string"
           },
           {
-            "name": "organizations",
-            "in": "query",
+            "name": "dummy",
+            "in": "body",
             "description": "A list of organization-IDs used to restrict the scope of API calls.",
             "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
+            "type": "object",
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+              }
+            }
           }
         ],
         "responses": {

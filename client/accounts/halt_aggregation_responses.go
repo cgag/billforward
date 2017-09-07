@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 
 	strfmt "github.com/go-openapi/strfmt"
@@ -103,5 +104,26 @@ func (o *HaltAggregationDefault) readResponse(response runtime.ClientResponse, c
 		return err
 	}
 
+	return nil
+}
+
+/*HaltAggregationBody halt aggregation body
+
+swagger:model HaltAggregationBody
+*/
+type HaltAggregationBody struct {
+
+	/* id
+	 */
+	ID string `json:"id,omitempty"`
+}
+
+// Validate validates this halt aggregation body
+func (o *HaltAggregationBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
