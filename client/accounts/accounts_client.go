@@ -200,7 +200,7 @@ func (a *Client) HaltAggregation(params *HaltAggregationParams) (*HaltAggregatio
 		Method:             "POST",
 		PathPattern:        "/accounts/{account-ID}/halt-aggregation",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{""},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &HaltAggregationReader{formats: a.formats},
